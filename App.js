@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { View, Text, TextInput, Platform, Image, Animated, StyleSheet, Keyboard, KeyboardAvoidingView } from 'react-native';
 import logo from './logo.png';
@@ -11,14 +5,10 @@ import logo from './logo.png';
 var IMAGE_HEIGHT = 200
 var IMAGE_HEIGHT_SMALL = 80
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
-
     this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
-
-
   }
 
   componentWillMount () {
@@ -37,21 +27,15 @@ export default class App extends Component {
   }
 
   keyboardWillShow = (event) => {
-    console.log('keyboarWillshow')
- 
       Animated.timing(this.imageHeight, {
-      
         toValue: IMAGE_HEIGHT_SMALL,
       }).start();
     
-  
   };
 
   keyboardWillHide = (event) => {
     console.log('keyboarWillHide')
-
     Animated.timing(this.imageHeight, {
-     
       toValue: IMAGE_HEIGHT,
     }).start();
   
@@ -73,7 +57,12 @@ export default class App extends Component {
             underlineColorAndroid='transparent'
           />
           <TextInput
-            placeholder="Username"
+            placeholder="First Name"
+            style={styles.input}
+            underlineColorAndroid='transparent'
+          />
+          <TextInput
+            placeholder="Last Name"
             style={styles.input}
             underlineColorAndroid='transparent'
           />
@@ -82,18 +71,11 @@ export default class App extends Component {
             style={styles.input}
             underlineColorAndroid='transparent'
           />
-          <TextInput
-            placeholder="Confirm Password"
-            style={styles.input}
-            underlineColorAndroid='transparent'
-          />
           </View>
       </KeyboardAvoidingView>
     );
   }
 };
-
-
 
 const styles = StyleSheet.create({
   container: {
